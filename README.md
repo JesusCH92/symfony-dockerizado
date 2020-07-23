@@ -91,6 +91,8 @@ Si todo es correcto, aparecerá la siguiente imagen:
 
 ![interactive-mode](https://i.imgur.com/VWtB0WY.jpg)
 
+Después de entrar en modo interactivo, hacer un **`composer install`**
+
 ## Acceder a la red
 Por último puede acceder al endpoint para visualizar el proyecto:
 ```
