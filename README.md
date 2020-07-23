@@ -90,3 +90,9 @@ Cuando ejecute el comando **`make interactive`**, aparece unas preguntas de la c
 Si todo es correcto, aparecerá la siguiente imagen:
 
 ![interactive-mode](https://i.imgur.com/VWtB0WY.jpg)
+
+## Acceder a la red
+Por último puede acceder al endpoint para visualizar el proyecto:
+```
+http://localhost:8000/
+```
