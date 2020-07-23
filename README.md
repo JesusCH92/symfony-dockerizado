@@ -3,6 +3,7 @@ Crear un entorno web, en cual trabajaremos con Symfony + MySQL + Nginx
 
 # Requisitos
 * Docker
+* MySQL Workbench (recomendable)
 
 # Definición del sistema
 El proyecto esta compuesto por el esqueleto que genera symfony al crear un nuevo proyecto desde cero:
@@ -32,6 +33,21 @@ your-project/
 **`Importante:`** La carpeta docker contine la configuración de los servicios de PHP Y Nginx de nuestro docker-compose.
 
 # Configuración del entorno
+
+## Configuración de la BBDD
+El proyecto tiene por defecto una conección a una base de datos de MySQL con los siguientes datos:
+* user: root
+* password: toor
+* database name: db
+Estos datos por defecto están establecidos en el fichero **`docker-compose-yml`** y en la conexión establecida en el ficher **`.env`**
+
+![db-docker-compose](https://i.imgur.com/puBGHdd.jpg)
+
+![config-db-symfony](https://i.imgur.com/FWDumvF.jpg)
+
+Si utiliza workbench puede configurarlo de esta forma para interactuar con bbdd:
+
+![workbench-config](https://i.imgur.com/kc16Ptb.png)
 
 ## Levantar el entorno (Symfony + MySQL + Nginx)
 Si tiene un S.O. de la familia de Unix (Linux o Mac), puede utilizar ejecutar:
