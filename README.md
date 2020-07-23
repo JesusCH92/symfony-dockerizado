@@ -30,7 +30,7 @@ your-project/
 │ └── tmp/
 └── vendor/
 ```
-**`Importante:`** La carpeta docker contine la configuración de los servicios de PHP Y Nginx de nuestro docker-compose.
+**`Importante:`** La carpeta **/docker** contine la configuración de los servicios de PHP Y Nginx de nuestro docker-compose.
 
 # Configuración del entorno
 
