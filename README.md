@@ -68,6 +68,9 @@ docker-compose -f docker-compose.cli.yml run \
     php-cli /bin/zsh -l
 ```
 Cuando ejecute el comando **`make interactive`**, aparece unas preguntas de la configuración por entorno, las cuales responda con "NO" **`n`**.
+
 ![config-environment](https://i.imgur.com/wVNHxuM.jpg)
+
 Si todo es correcto, aparecerá la siguiente imagen:
+
 ![interactive-mode](https://i.imgur.com/VWtB0WY.jpg)
