@@ -22,10 +22,6 @@ RUN apt-get update \
 RUN curl https://getcomposer.org/composer.phar -o /usr/bin/composer && chmod +x /usr/bin/composer
 RUN composer self-update
 
-RUN wget https://cs.symfony.com/download/php-cs-fixer-v2.phar -O php-cs-fixer
-RUN chmod a+x php-cs-fixer
-RUN mv php-cs-fixer /usr/local/bin/php-cs-fixer
-
 RUN mkdir -p /app
 
 USER appuser
