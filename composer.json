@@ -17,6 +17,7 @@
         "symfony/framework-bundle": "5.3.*",
         "symfony/proxy-manager-bridge": "5.3.*",
         "symfony/runtime": "5.3.*",
+        "symfony/security-bundle": "5.3.*",
         "symfony/security-core": "5.3.*",
         "symfony/yaml": "5.3.*"
     },
