@@ -96,6 +96,9 @@
     "symfony/http-kernel": {
         "version": "v5.3.12"
     },
+    "symfony/password-hasher": {
+        "version": "v5.3.8"
+    },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.23.1"
     },
@@ -128,6 +131,9 @@
         ]
     },
     "symfony/runtime": {
+        "version": "v5.3.11"
+    },
+    "symfony/security-core": {
         "version": "v5.3.11"
     },
     "symfony/service-contracts": {
