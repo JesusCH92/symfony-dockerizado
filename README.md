@@ -4,9 +4,11 @@
 > [!IMPORTANT]
 > **Debes tener instalado Docker y Docker Compose en tu equipo.**
 
-- [ ] Stack tecnológico: Docker y Docker Compose.
+Este proyecto tiene como finalidad virtualizar un entorno de desarrollo utilizando **Docker** para trabajar con:
 
-Este proyecto tiene la finalidad de virtualizar un entorno con Docker para trabajar con PHP(8.4) + MySQL + Nginx
+- PHP 8.4 (para instalar la última versión de Symfony)
+- MySQL
+- Nginx
 
 ## Instalación
 
@@ -43,7 +45,7 @@ Este proyecto tiene la finalidad de virtualizar un entorno con Docker para traba
 [**`Proyecto Web`**](http://localhost:8080)
 
 ## Conexión de Symfony a la base de datos:
-```.dotenv
+```.env
 DATABASE_URL="mysql://user:password@mysql:3306/database?serverVersion=8.0"
 ```
 
