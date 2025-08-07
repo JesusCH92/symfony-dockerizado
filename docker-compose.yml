@@ -1,18 +1,16 @@
-version: '3.5'
-
 services:
   webserver:
     container_name: webserver
     build:
       context: ./docker/nginx
       args:
-        UID: $U_ID
+        UID: 1000
     ports:
       - 8080:80
     volumes:
       - ./public:/app/public
     networks:
-      - docker-symfony-network
+      - app-network
     depends_on:
       - php-fpm
 
@@ -21,19 +19,17 @@ services:
     build:
       context: ./docker/php
       args:
-        UID: $U_ID
-    environment:
-      PHP_IDE_CONFIG: serverName=Docker
-      PHP_XDEBUG_ENABLED: 1
-      XDEBUG_CONFIG: remote_host=172.17.0.1 remote_port=9005 # Linux users
-#      XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9005 # MacOS users
+        UID: 1000
     volumes:
       - ./:/app
-      - ./docker/php/xdebug-linux.ini:/usr/local/etc/php/conf.d/xdebug.ini # Linux users
-#    - ./docker/php/xdebug-macos.ini:/usr/local/etc/php/conf.d/xdebug.ini # MacOS users
+      - ./docker/php/xdebug-linux.ini:/usr/local/etc/php/conf.d/xdebug.ini # variables de entorno para xdebug en windows
       - ~/.ssh/id_rsa:/home/appuser/.ssh/id_rsa
+    environment:
+      XDEBUG_CLIENT_HOST: host.docker.internal  # ip del kernel de docker en windows (funciona tambien en mac)
+      XDEBUG_CLIENT_PORT: 9003
+      PHP_IDE_CONFIG: serverName=DOCKER
     networks:
-      - docker-symfony-network
+      - app-network
     depends_on:
       - mysql
 
@@ -43,19 +39,19 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_DATABASE: docker_symfony_database
+      MYSQL_DATABASE: database
       MYSQL_USER: user
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: root
     command: mysqld --sql_mode="STRICT_ALL_TABLES,NO_ENGINE_SUBSTITUTION"
     volumes:
-      - docker-symfony-database-data:/var/lib/mysql
+      - database-data:/var/lib/mysql
     networks:
-      - docker-symfony-network
+      - app-network
 
 volumes:
-  docker-symfony-database-data:
+  database-data:
 
 networks:
-  docker-symfony-network:
+  app-network:
     external: true
