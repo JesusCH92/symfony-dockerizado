@@ -1,26 +1,22 @@
 #! /bin/bash
 
-DOCKERING_PHP = php-fpm
-UID = $(shell id -u)
-DOCKER_NETWORK = docker-symfony-network
-
-
-##	create-network:			create the default network
+##	create-network:					crete network docker
 create-network:
-		docker network create ${DOCKER_NETWORK} | true
+	docker network create app-network | true
 
 
-##	start:					get up environment (PHP + MYSQL + NGINEX)
-start: create-network
-		U_ID=${UID} docker-compose up -d
+
+##	start:					get up environment (PHP + MYSQL + NGINX)
+start:
+	-docker network create app-network | true
+	-docker compose -p app up -d
 
 
 ##	stop:					stop the containers
 stop:
-		U_ID=${UID}	docker-compose stop
+	-docker compose stop
 
 
 ## interactive:				runs php container with an interactive shell
-interactive: create-network
-		$(MAKE) start | true
-		U_ID=${UID} docker exec -it --user ${UID} ${DOCKERING_PHP} bash
+interactive:
+	-docker exec -it php-fpm bash
