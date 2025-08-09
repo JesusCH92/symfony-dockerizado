@@ -35,9 +35,18 @@ Este proyecto tiene como finalidad virtualizar un entorno de desarrollo utilizan
 ```
 
 - [ ] Debemos sacar el esqueleto de Symfony que hemos instalados a la raiz del proyecto:
+
+Para Mac, Linux, WSL2
+
 ```shell
   shopt -s dotglob nullglob
   mv my_project_directory/* . && rmdir my_project_directory
+```
+
+Para Windows:
+```cmd
+  move my_project_directory\* .
+  rmdir /s /q my_project_directory
 ```
 
 - [ ] Para finalizar acceder a la url:
